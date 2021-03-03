@@ -42,7 +42,7 @@ function calc(){
             return
         } else if (this.id === "decimal") {
             memory.push("0.")
-            display(".")
+            display(memory[0])
         } else if (isNaN(parseInt(this.id))) {
             if (result !== null) {
                 memory.push(result)
@@ -85,7 +85,7 @@ function calc(){
             display(result)
         } else if (this.id === "decimal") {
             memory.push("0.")
-            display(".")
+            display("0.")
         } else if (isNaN(parseInt(this.id))) {
             memory[1] = this.id
         } else {
@@ -95,13 +95,8 @@ function calc(){
     } else if (memory.length === 3) {
         if (this.id ==="backspace") {
             if (memory[2].length === 1) {
-                if (memory[2] === "0") {
-                    memory = [memory[0]]
-                    display(memory[0])
-                } else {
-                    memory[2] = "0"
-                    display(memory[2])
-                }
+                memory = [memory[0]]
+                display(memory[0])
             } else {
                 memory[2] = memory[2].slice(0, -1)
                 display(memory[2])
