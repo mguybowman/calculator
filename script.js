@@ -133,7 +133,7 @@ function calc(){
             display(memory[2])
         }
     }
-    document.getElementById('debug').innerHTML = memory
+    //document.getElementById('debug').innerHTML = memory
 }
 
 function test(e) {
