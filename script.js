@@ -8,7 +8,12 @@ function subtract(a, b) {return a - b}
 function multiply(a, b) {return a * b}
 function divide(a, b) {return a / b}
 
-function operate(a, b, func) {return func(a,b)}
+function operate(a, b, func) {
+    let output = func(a,b)
+    output = output.toFixed(10)
+    output = parseFloat(output.toString())
+    return output
+}
 
 function display(x) {document.getElementById("result").innerHTML = x}
 
