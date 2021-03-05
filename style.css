@@ -1,10 +1,9 @@
 :root {
-    --gap: 24px;
-    --font-size: 32px;
+    --font-size: 24px;
 }
 
 body {
-    color: var(--text);
+    color: #222;
     font-family: Arial, Helvetica, sans-serif;
     font-size: var(--font-size);
     margin: 0;
@@ -14,18 +13,24 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width: 600px;
+    min-width: 320px;
     line-height: var(--font-size);
 }
 
 main {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 480px;
-    height: 600px;
-    grid-gap: var(--gap);
+    width: 100%;
+    max-width: 480px;
+    grid-gap: 5%;
     position: relative;
     padding: var(--gap);
+}
+
+main > button::before, main > div::before {
+    content:"";
+    padding-bottom: 75%;
+    display: block;
 }
 
 main > button {
@@ -44,6 +49,12 @@ main > button:hover {
     cursor: pointer;
 }
 
+#result::before {
+    content: "";
+    padding-bottom: 45.243%;
+    display: block;
+}
+
 #result {
     background-color: white;
     border: 2px solid #BBB;
@@ -58,6 +69,12 @@ main > button:hover {
 
 #result:hover {
     cursor: auto;
+}
+
+#spacer::before {
+    content: "";
+    padding-bottom: 25%;
+    display: block;
 }
 
 #spacer {
@@ -77,10 +94,11 @@ main > button:hover {
     color: white;
 }
 
+/*
 #warning {
     position: absolute;
     left: var(--gap);
-    top: 72px;
+    top: -10%;
     left: 0;
     right: 0;
     width: 100%;
@@ -89,6 +107,7 @@ main > button:hover {
     text-align: center;
     color: #222;
 }
+*/
 
 #debug {
     font-size: 12px;

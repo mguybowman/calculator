@@ -31,7 +31,6 @@ function zeroUpdate(x, y) {
 }
 
 function calc(){
-    warning.style.visibility = "hidden"
     if (this.id === "clear") {
         memory = []
         result = null
@@ -113,7 +112,7 @@ function calc(){
             if (memory[1] === "multiply") {operation = multiply}
             if (memory[1] === "divide") {
                 if (memory[2] === "0") {
-                    warning.style.visibility = "visible"
+                    display("DON'T DIVIDE BY ZERO!!!")
                     return
                 } else {operation = divide}
             }
