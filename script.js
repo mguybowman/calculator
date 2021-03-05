@@ -9,10 +9,7 @@ function multiply(a, b) {return a * b}
 function divide(a, b) {return a / b}
 
 function operate(a, b, func) {
-    let output = func(a,b)
-    output = output.toFixed(10)
-    output = parseFloat(output.toString())
-    return output
+    return Math.round(func(a,b) * 10000000000) / 10000000000
 }
 
 function display(x) {document.getElementById("result").innerHTML = x}
@@ -114,20 +111,21 @@ function calc(){
             if (memory[1] === "add") {operation = add}
             if (memory[1] === "subtract") {operation = subtract}
             if (memory[1] === "multiply") {operation = multiply}
-            if (memory[1] === "divide") {operation = divide}
+            if (memory[1] === "divide") {
+                if (memory[2] === "0") {
+                    warning.style.visibility = "visible"
+                    return
+                } else {operation = divide}
+            }
             result = operate(
                 parseFloat(memory[0]),
                 parseFloat(memory[2]),
                 operation
             )
-            if (result === Infinity) {
-                warning.style.visibility = "visible"
-            } else {
-                display(result)
-                if (this.id === "equals") {
-                    memory = []
-                } else {memory = [result, this.id]}
-            }
+            display(result)
+            if (this.id === "equals") {
+                memory = []
+            } else {memory = [result, this.id]}
         } else {
             memory[2] = zeroUpdate(memory[2], this.id)
             display(memory[2])
