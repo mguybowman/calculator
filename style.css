@@ -20,11 +20,12 @@ body {
 main {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 100%;
+    min-width: 288px;
+    width: calc(100vw - 32px);
     max-width: 480px;
     grid-gap: 5%;
     position: relative;
-    padding: var(--gap);
+    margin: 16px;
 }
 
 main > button::before, main > div::before {
